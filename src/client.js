@@ -1,5 +1,4 @@
 // REACT
-import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { loadComponents } from 'loadable-components';
@@ -13,8 +12,7 @@ import thunk from 'redux-thunk';
 
 // IMPORT COMBINED REDUCERS
 import reducers from './reducers/index';
-// IMPORT ACTIONS
-import { addToCart } from './actions/cartActions';
+
 // STEP 1 create the store
 const middleware = applyMiddleware(thunk, logger);
 // WE WILL PASS INITIAL STATE FROM SERVER STORE
