@@ -2,10 +2,11 @@
 import React from 'react';
 import { render } from 'react-dom';
 // REACT-ROUTER
+
 //import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import { Route, Switch, Link } from 'react-router-dom';
-import Header from './components/header';
-import Footer from './components/footer';
+import Header from '.././components/header';
+import Footer from '.././components/footer';
 import loadable from 'loadable-components';
 // END REACT- ROUTER
 
@@ -32,15 +33,15 @@ const NotFound = function () {
 };
 
 //Loadable Components
-const Home = loadable(() => import('./components/pages/home' /* webpackChunkName: 'home' */));
-const Cart = loadable(() => import('./components/pages/cart' /* webpackChunkName: 'cart' */));
-const BooksForm = loadable(() => import('./components/pages/booksForm' /* webpackChunkName: 'bookForm' */));
-const BooksList = loadable(() => import('./components/pages/booksList' /* webpackChunkName: 'bookList' */));
+const Home = loadable(() => import('.././components/pages/home' /* webpackChunkName: 'home' */));
+const Cart = loadable(() => import('.././components/pages/cart' /* webpackChunkName: 'cart' */));
+const BooksForm = loadable(() => import('.././components/pages/booksForm' /* webpackChunkName: 'bookForm' */));
+const BooksList = loadable(() => import('.././components/pages/booksList' /* webpackChunkName: 'bookList' */));
 
 // CLIENT-SERVER SHARED ROUTES
 const routes = (
   <div>
-    <Header/>
+    <Header />
     <Switch>
       <Route exact={true} path="/" component={Home} />
       <Route path="/books" component={BooksList} />
@@ -52,12 +53,10 @@ const routes = (
   </div>
 );
 
-// For import to work on node server
-
 if (typeof require.ensure !== "function")
   require.ensure = (d, c) => {
     c(require);
   };
-if (typeof require.include !== "function") require.include = () => {};
+if (typeof require.include !== "function") require.include = () => { };
 
 export default routes;
