@@ -33,8 +33,8 @@ const NotFound = function () {
 };
 
 //Loadable Components
-const Home = loadable(() => import('.././components/pages/home' /* webpackChunkName: 'home' */));
 const Cart = loadable(() => import('.././components/pages/cart' /* webpackChunkName: 'cart' */));
+const Home = loadable(() => import('.././components/pages/home' /* webpackChunkName: 'home' */));
 const BooksForm = loadable(() => import('.././components/pages/booksForm' /* webpackChunkName: 'bookForm' */));
 const BooksList = loadable(() => import('.././components/pages/booksList' /* webpackChunkName: 'bookList' */));
 

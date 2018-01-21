@@ -29,7 +29,18 @@ module.exports =  {
       minify: {
         removeComments: true,
         collapseWhitespace: true,
-        conservativeCollapse: true
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true
+      },
+      chunksSortMode(a, b) {
+        const order = ['client', 'vendor'];
+        return order.indexOf(b.names[0]) - order.indexOf(a.names[0]);
       }
     }),
     new ScriptExtHtmlWebpackPlugin({
@@ -39,7 +50,6 @@ module.exports =  {
     new webpack.optimize.CommonsChunkPlugin({
       names: ['client', 'vendor'],
       filename: '[name]-[hash].bundle.js',
-      minChunks: Infinity,
     }),
   ],
   output: {
@@ -60,10 +70,15 @@ module.exports =  {
         query: {
           presets: ['react', 'es2015', 'stage-1']
         }
-      }, {
+      }, 
+      {
         test: /\.scss$/,
         exclude: /node_modules/,
         loaders: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
+        loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
       }
     ]
   },

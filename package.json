@@ -20,7 +20,9 @@
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
     "webpack-bundle-analyzer": "^2.9.2",
-    "webpack-dev-server": "^2.11.0"
+    "webpack-dev-server": "^2.11.0",
+    "file-loader": "^1.1.6",
+    "url-loader": "^0.6.2"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -39,6 +41,7 @@
     "ejs": "^2.5.7",
     "express": "~4.15.5",
     "express-session": "^1.15.6",
+
     "http-proxy": "^1.16.2",
     "jade": "~1.11.0",
     "loadable-components": "^0.4.0",
@@ -50,8 +53,10 @@
     "react-icons": "^2.2.7",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
+    "react-slick": "^0.16.0",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "serve-favicon": "~2.4.5"
+    "serve-favicon": "~2.4.5",
+    "slick-carousel": "^1.8.1"
   }
 }

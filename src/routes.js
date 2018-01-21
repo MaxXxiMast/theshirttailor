@@ -53,7 +53,6 @@ const routes = (
 );
 
 // For import to work on node server
-
 if (typeof require.ensure !== "function")
   require.ensure = (d, c) => {
     c(require);

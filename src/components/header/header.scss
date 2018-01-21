@@ -1,10 +1,32 @@
 
-.d-f {
-  display: flex;
+.header {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  background: rgba(51, 51, 51, 0.14);
+  padding: 20px 0;
 
+  .empty {
+    flex: 1;
+  }
   .title {
     flex: 1;
     margin-left: auto;
+    color: white;
+    font-size: 30px;
+    font-family: monospace;
+  }
+
+  .icons {
+    flex-direction: row;
+    flex: 1;
+    justify-content: flex-end;
+
+    .fa {
+      color: white;
+      margin-right: 20px;
+      font-size: 35px;
+    }
   }
 }
 

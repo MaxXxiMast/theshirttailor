@@ -1,4 +1,10 @@
 
+html,body {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  overflow-x: hidden;
+  color: #333;
+}
+
 .container {
   width: auto;
   max-width: 900px;
@@ -14,6 +20,38 @@
 }
 
 img {
-  max-width: 100px;
   width: 100%;
+}
+
+.d-f {
+  display: flex;
+}
+.fd-c {
+  flex-direction: column;
+}
+.fd-r {
+  flex-direction: row;
+}
+.f-1 {
+  flex:1;
+}
+a {
+  color: #333;
+}
+
+a:hover,a:focus {
+  text-decoration: none;
+}
+
+button {
+  background: transparent;
+  color: #fff;
+  border-width: 2px;
+  font-size: 16px;
+  padding: 6px;
+  outline: none;
+}
+
+.gap {
+    margin: 15px;
 }

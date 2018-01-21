@@ -13,37 +13,37 @@ import reducers from './src/reducers/index';
 import routes from './src/routes';
 
 function handleRender(req, res) {
-  axios.get('http://localhost:3001/books')
-    .then(function (response) {
-      // var myHtml = JSON.stringify(response.data);
-      // res.render('index', {myHtml});
+  // axios.get('http://localhost:3001/books')
+  //   .then(function (response) {
+  // var myHtml = JSON.stringify(response.data);
+  // res.render('index', {myHtml});
 
-      // STEP-1 CREATE A REDUX STORE ON THE SERVER
-      const store = createStore(reducers, { "books": { "books": response.data } })
+  // STEP-1 CREATE A REDUX STORE ON THE SERVER
+  const store = createStore(reducers);
 
-      // STEP-2 GET INITIAL STATE FROM THE STORE
-      const initialState = JSON.stringify(store.getState()).replace(/<\/script/g, '<\\/script').replace(/<!--/g, '<\\!--');
-      
-      // STEP-3 IMPLEMENT REACT-ROUTER ON THE SERVER TO INTERCEPT CLIENT REQUESTs AND DEFINE WHAT TO DO WITH THEM
-      const context = {};
-      const appWithRouter = (
-        <Provider store={store}>
-          <StaticRouter
-            location={req.url}
-            context={context}>
-            {routes}
-          </StaticRouter>
-        </Provider>
-      );
-      
-      getLoadableState(appWithRouter).then(() => {
-        const reactComponent = renderToString(appWithRouter);
-        res.status(200).render('index', { reactComponent, initialState });
-      });
-    })
-    .catch(function (err) {
-      console.log('#Initial Server-side rendering error', err);
-    })
+  // STEP-2 GET INITIAL STATE FROM THE STORE
+  const initialState = JSON.stringify(store.getState()).replace(/<\/script/g, '<\\/script').replace(/<!--/g, '<\\!--');
+  
+  // STEP-3 IMPLEMENT REACT-ROUTER ON THE SERVER TO INTERCEPT CLIENT REQUESTs AND DEFINE WHAT TO DO WITH THEM
+  const context = {};
+  const appWithRouter = (
+    <Provider store={store}>
+      <StaticRouter
+        location={req.url}
+        context={context}>
+        {routes}
+      </StaticRouter>
+    </Provider>
+  );
+  
+  getLoadableState(appWithRouter).then(() => {
+    const reactComponent = renderToString(appWithRouter);
+    res.status(200).render('index', { reactComponent, initialState });
+  });
+  // })
+  // .catch(function (err) {
+  //   console.log('#Initial Server-side rendering error', err);
+  // })
 }
 
 module.exports = handleRender;
